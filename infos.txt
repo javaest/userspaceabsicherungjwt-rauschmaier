@@ -1,0 +1,14 @@
+https://github.com/bezkoder/spring-boot-spring-security-jwt-authentication/tree/master?tab=readme-ov-file
+
+localhost:8080/api/auth/signin
+{
+    "username": "newUser2",
+    "password": "password123"
+}
+
+localhost:8080/api/auth/signup
+{
+    "username": "newUser3",
+    "email": "newUser3@example.com",
+    "password": "password123"
+}
