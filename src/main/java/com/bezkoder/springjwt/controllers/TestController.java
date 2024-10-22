@@ -14,7 +14,15 @@ public class TestController {
   public String allAccess() {
     return "Public Content.";
   }
-
+@GetMapping("/me")
+    @PreAuthorize("isAuthenticated()")
+    public User getCurrentUser(Authentication authentication) {
+		System.out.println(authentication.toString());
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+        return user;
+    }
   @GetMapping("/user")
   @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   public String userAccess() {
