@@ -5,29 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plattformen und Kurse</title>
     <link rel="stylesheet" href="style.css">
-	<script>
-        // Überprüfen, ob der Benutzer angemeldet ist
-        window.onload = function() {
-            const username = localStorage.getItem('username');
-			console.log('Geladener Benutzername:', username); 
-            if (!username) {
-                // Benutzer ist nicht angemeldet, zurück zur Anmeldeseite leiten
-                window.location.href = 'login.html'; // Ändere den Dateinamen entsprechend deiner Struktur
-            }
-        };
-	function logout() {
-		localStorage.removeItem('username'); // Entferne den Benutzernamen aus dem localStorage
-		window.location.href = 'login.html'; // Zur Anmeldeseite leiten
-	}
-    </script>
+    <script src="auth.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Interner Bereich</h1>
-        <p>Wenn SIe das sehen, sind Sie hoffentlich dazu berechtigt =)</p>
+        <p>Wenn Sie das sehen, sind Sie hoffentlich dazu berechtigt =)</p>
+		<p><a href="me.html" id="profile-link">Mein Profil anzeigen</a>
     </div>
-	<div class="container">
+	 <div class="container">
 		<button onclick="logout()">Abmelden</button>
-	</div>
+	<div>
 </body>
 </html>
