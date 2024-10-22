@@ -63,3 +63,5 @@ im Verzeichnis "frontend" gibt es die index.html, welche nur mittels Authenfizie
 
 **Debugging:**
 Nutzen Sie Tools wie Postman, um die API-Anfragen, und derren Antworten zu Testen.
+
+## Test
