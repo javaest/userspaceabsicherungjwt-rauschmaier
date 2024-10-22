@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persönlicher Bereich</title>
+	<link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+    <div id="personal-area">
+        <!-- Benutzerinformationen werden hier angezeigt -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Token aus dem lokalen Speicher holen
+            const token = localStorage.getItem('token');
+
+            // Anfrage an den /api/me Endpoint senden
+            fetch('http://localhost:8080/api/test/me', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Benutzerinformationen im HTML anzeigen
+                const personalArea = document.getElementById('personal-area');
+                personalArea.innerHTML = `
+                    <p>Username: ${data.username}</p>
+                    <p>Email: ${data.email}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
